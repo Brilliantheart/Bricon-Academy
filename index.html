@@ -22,28 +22,32 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
 </head>
 <body>
 
-<!-- ================= NAVIGATION BAR ================= -->
+<!-- ================= NAVIGATION ================= -->
 
-<nav class="navbar navbar-expand-lg bg-white shadow sticky-top py-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
 
 <div class="container">
 
-<a class="navbar-brand fw-bold text-primary" href="#">
+<a class="navbar-brand d-flex align-items-center" href="#">
 
 <img src="assets/images/logo.png"
-     class="navbar-logo me-2"
-     alt="BRIHCON Academy Logo">
+class="navbar-logo"
+alt="BRIHCON Academy Logo">
 
-<span class="fw-bold fs-3 text-primary">
-    BRIHCON Academy
+<span class="brand-text">
+BRIHCON Academy
 </span>
 
 </a>
 
-<button class="navbar-toggler"
+<button
+class="navbar-toggler"
 type="button"
 data-bs-toggle="collapse"
-data-bs-target="#navbarNav">
+data-bs-target="#navbarNav"
+aria-controls="navbarNav"
+aria-expanded="false"
+aria-label="Toggle navigation">
 
 <span class="navbar-toggler-icon"></span>
 
@@ -52,7 +56,7 @@ data-bs-target="#navbarNav">
 <div class="collapse navbar-collapse"
 id="navbarNav">
 
-<ul class="navbar-nav ms-auto">
+<ul class="navbar-nav mx-auto">
 
 <li class="nav-item">
 <a class="nav-link active" href="#">Home</a>
@@ -67,47 +71,49 @@ id="navbarNav">
 </li>
 
 <li class="nav-item">
-    <a class="nav-link" href="#testimonials">Testimonials</a>
+<a class="nav-link" href="#testimonials">Testimonials</a>
 </li>
 
 <li class="nav-item">
 <a class="nav-link" href="#contact">Contact</a>
 </li>
 
-<li class="nav-item">
+</ul>
 
-<div class="d-flex align-items-center gap-3">
+<div class="navbar-buttons">
 
-    <a href="#"
-       class="btn btn-outline-primary google-login"
-       data-url="https://script.google.com/macros/s/AKfycbw-p0ZIhzXnlFWdeRS-9d6AIKS9VWM-W7EAECVDmQnjec3H6gtN5RcXPsz-zkzmJPb-CA/exec">
-        Verify Certificate
-    </a>
-
- <a
+<a
 href="#"
-class="btn btn-primary btn-lg google-login"
+class="btn btn-outline-primary google-login"
+data-url="https://script.google.com/macros/s/AKfycbw-p0ZIhzXnlFWdeRS-9d6AIKS9VWM-W7EAECVDmQnjec3H6gtN5RcXPsz-zkzmJPb-CA/exec">
+
+Verify Certificate
+
+</a>
+
+<a
+href="#"
+class="btn btn-primary google-login"
 data-url="registration.html">
+
 Enroll Now
+
 </a>
 
 </div>
-
 
 </div>
 
 </div>
 
 </nav>
-
 <!-- ================= HERO SECTION ================= -->
 
 <section id="home" class="hero py-5">
 
 <div class="container">
 
-<div class="row align-items-start">
-
+<div class="row align-items-center">
 <!-- Left Side -->
 <div class="col-lg-6 hero-content">
 
@@ -116,7 +122,7 @@ Master Data Analytics with Practical Skills
 </h1>
 
 <p class="lead mt-4">
-Learn Excel, Google Sheets, SQL, Power BI and Looker Studio through practical live classes, real-world projects, and expert guidance.
+Learn Excel, Google Sheets, SQL, Power BI, Looker Studio and Report Authomation through practical live classes, real-world projects, and expert guidance.
 </p>
 
 <div class="hero-buttons mt-4">
@@ -176,7 +182,7 @@ playsinline>
 </div>
 
 <div class="col-md-3">
-<h2 class="text-primary fw-bold">5+</h2>
+<h2 class="text-primary fw-bold">100+</h2>
 <p>Certificates Issued</p>
 </div>
 
@@ -442,6 +448,12 @@ Whether you're just starting out or transitioning into data analytics, my goal i
 Learn More About Me
 
 </a>
+<a href="https://ugobo-emmanuel.vercel.app/"
+   class="btn btn-outline-primary"
+   target="_blank">
+View My Portfolio
+
+</a>
 
             </div>
 
@@ -478,7 +490,7 @@ Learn More About Me
 
         <div class="card-body text-center">
 
-            <h4 class="mb-1">Microsoft Excel</h1>
+            <h4 class="mb-1">Microsoft Excel</h4>
 
             <p class="mb-4">
                 Learn formulas, PivotTables, charts, dashboards and automation.
@@ -611,7 +623,7 @@ Enroll Now
 
         <div class="card-body text-center">
 
-            <h4 class="mb-2">System automation</h6>
+           <h4 class="mb-2">System Automation</h4>
 
             <p class="mb-4">
             Automate data-driven systems that save time, reduce errors, and boost productivity.
@@ -795,7 +807,7 @@ Hear from students who have started their Data Analytics journey with BRIHCON Ac
     <div class="col-lg-4">
         <div class="card shadow border-0 h-100">
 
-            <a href="youtu.be/1zKBPmQvEMM?si" target="_blank">
+            <a href="https://youtu.be/1zKBPmQvEMM?si" target="_blank">
                 <img src="https://img.youtube.com/vi/1zKBPmQvEMM/maxresdefault.jpg"
                      class="card-img-top youtube-thumb"
                      alt="Data Analytics Bootcamp">
@@ -811,7 +823,7 @@ Hear from students who have started their Data Analytics journey with BRIHCON Ac
                     Continue your practical journey with real-world demonstrations and exercises.
                 </p>
 
-                <a href="https://youtu.be/1zKBPmQvEMM?si=500FpGakEFc4gZgQ"
+                <a href="https://https://youtu.be/1zKBPmQvEMM?si=500FpGakEFc4gZgQ"
    class="btn btn-outline-primary"
    target="_blank">
                     ▶ Watch on YouTube
@@ -860,7 +872,7 @@ Hear from students who have started their Data Analytics journey with BRIHCON Ac
     <div class="col-lg-4">
         <div class="card shadow border-0 h-100">
 
-            <a href="youtu.be/ZPihgjvRtqY?si" target="_blank">
+            <a href="https://youtu.be/ZPihgjvRtqY?si" target="_blank">
                 <img src="https://img.youtube.com/vi/ZPihgjvRtqY/maxresdefault.jpg"
                      class="card-img-top youtube-thumb"
                      alt="Data Analytics Bootcamp">
@@ -894,7 +906,7 @@ Hear from students who have started their Data Analytics journey with BRIHCON Ac
     <div class="col-lg-4">
         <div class="card shadow border-0 h-100">
 
-            <a href="youtu.be/ilFADUbVAts?si" target="_blank">
+            <a href="https://youtu.be/ilFADUbVAts?si" target="_blank">
                 <img src="https://img.youtube.com/vi/ilFADUbVAts/maxresdefault.jpg"
                      class="card-img-top youtube-thumb"
                      alt="Data Analytics Bootcamp">
@@ -927,7 +939,7 @@ Hear from students who have started their Data Analytics journey with BRIHCON Ac
     <div class="col-lg-4">
         <div class="card shadow border-0 h-100">
 
-            <a href="youtu.be/NPiJ05sEQjE?si" target="_blank">
+            <a href="https://youtu.be/NPiJ05sEQjE?si" target="_blank">
                 <img src="https://img.youtube.com/vi/NPiJ05sEQjE/maxresdefault.jpg"
                      class="card-img-top youtube-thumb"
                      alt="Data Analytics Bootcamp">
@@ -960,7 +972,7 @@ Hear from students who have started their Data Analytics journey with BRIHCON Ac
     <div class="col-lg-4">
         <div class="card shadow border-0 h-100">
 
-            <a href="youtu.be/TNe3rYGtchI?si" target="_blank">
+            <a href="https://youtu.be/TNe3rYGtchI?si" target="_blank">
                 <img src="https://img.youtube.com/vi/TNe3rYGtchI/maxresdefault.jpg"
                      class="card-img-top youtube-thumb"
                      alt="Data Analytics Bootcamp">
@@ -1198,7 +1210,7 @@ digital certificates.
 </p>
 
  <a href="#"
-   class="secondary google-login"
+   class="light-login"
    data-url="https://docs.google.com/forms/d/e/1FAIpQLSdikaY3TfEQsWDkCFpOF4P0erZunV_uy4Vov2r-BqC1QSUkAA/viewform?usp=sharing&ouid=107948398067975333076">
 
 Enroll Today
@@ -1307,8 +1319,6 @@ WhatsApp Community
 <div class="whatsapp-container">
 
     <div class="chat-popup" id="chatPopup">
-
-        <button class="close-chat" onclick="closeChat()">&times;</button>
 
         <div class="chat-header">
 
@@ -1475,6 +1485,5 @@ WhatsApp Community
 
 </body>
 </html>
-</body>
-</html>
+
 
