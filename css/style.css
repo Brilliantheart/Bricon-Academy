@@ -773,8 +773,8 @@ font-size:17px;
 
 .card-body .btn{
     margin-top:auto;
-    width:250px;
-    align-self:center;
+    align-self:flex-start;
+    width:auto;
 }
 .course-img{
     width:100%;
@@ -784,6 +784,11 @@ font-size:17px;
 #courses .card-img-top{
     height:200px;
     object-fit:cover;
+}
+.course-card .btn{
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 0;
 }
 
 #courses .card-body{
@@ -3782,3 +3787,47 @@ padding:45px 0;
 .tool-slider
 .tool-track
 .tool-card
+.team-section{
+    background:#f8fbff;
+}
+
+.team-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    text-align:left;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.team-card:hover{
+    transform:translateY(-10px);
+}
+
+.team-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    object-position:center 15%;
+}
+
+
+.team-content{
+    padding:20px;
+}
+
+.team-content h5{
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.team-content span{
+    color:#0d6efd;
+    font-weight:500;
+    font-size:.95rem;
+}   
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
