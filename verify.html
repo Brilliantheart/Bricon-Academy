@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Certificate Verification | BRIHCON</title>
+
+    <meta name="description"
+        content="Verify the authenticity of a certificate issued by Brilliant Heart Consult (BRIHCON).">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+
+            margin: 0;
+
+            font-family: 'Poppins', sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+
+        }
+
+
+        /* =====================================
+           NAVBAR
+        ===================================== */
+
+        .navbar {
+
+            background: #0B3B75;
+
+            padding: 18px 0;
+
+        }
+
+
+        .navbar-brand {
+
+            color: #ffffff !important;
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+        }
+
+
+        .navbar-brand span {
+
+            color: #D4AF37;
+
+        }
+
+
+        .navbar .nav-link {
+
+            color: #ffffff !important;
+
+            font-weight: 500;
+
+        }
+
+      
+
+
+        /* =====================================
+           HERO
+        ===================================== */
+
+        .verification-section {
+
+            min-height: calc(100vh - 75px);
+
+            padding: 70px 15px;
+
+        }
+
+
+        .verification-container {
+
+            max-width: 850px;
+
+            margin: auto;
+
+        }
+
+
+        .verification-header {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .verification-icon {
+
+            width: 80px;
+
+            height: 80px;
+
+            background: #0B3B75;
+
+            color: #ffffff;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin: 0 auto 20px;
+
+            font-size: 35px;
+
+        }
+
+
+        .verification-header h1 {
+
+            font-weight: 700;
+
+            color: #0B3B75;
+
+        }
+
+
+        .verification-header p {
+
+            color: #6b7280;
+
+            max-width: 650px;
+
+            margin: 10px auto;
+
+        }
+
+
+        /* =====================================
+           SEARCH CARD
+        ===================================== */
+
+        .search-card {
+
+            background: #ffffff;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+
+        }
+
+
+        .search-card label {
+
+            font-weight: 600;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .search-card input {
+
+            height: 55px;
+
+            border-radius: 8px;
+
+        }
+
+
+        .verify-btn {
+
+            height: 55px;
+
+            background: #0B3B75;
+
+            color: #ffffff;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+            padding: 0 30px;
+
+        }
+
+
+        .verify-btn:hover {
+
+            background: #092f5d;
+
+            color: #ffffff;
+
+        }
+
+
+        /* =====================================
+           LOADING
+        ===================================== */
+
+        #loading {
+
+            display: none;
+
+            text-align: center;
+
+            margin-top: 25px;
+
+        }
+
+
+        /* =====================================
+           RESULT
+        ===================================== */
+
+        #result {
+
+            display: none;
+
+            margin-top: 35px;
+
+        }
+
+
+        .result-card {
+
+            background: #ffffff;
+
+            border-radius: 15px;
+
+            padding: 35px;
+
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+
+        }
+
+
+        .verified-badge {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .verified-icon {
+
+            width: 70px;
+
+            height: 70px;
+
+            background: #198754;
+
+            color: #ffffff;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin: 0 auto 15px;
+
+            font-size: 32px;
+
+        }
+
+        .verified-success{
+
+    background:#198754;
+
+}
+
+.verified-danger{
+
+    background:#dc3545;
+
+}
+
+.verified-warning{
+
+    background:#fd7e14;
+
+}
+
+
+        .verified-badge h2 {
+
+            color: #198754;
+
+            font-weight: 700;
+
+        }
+
+
+        .certificate-info {
+
+            border-top: 1px solid #e5e7eb;
+
+            padding-top: 25px;
+
+        }
+
+
+        .info-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 14px 0;
+
+            border-bottom: 1px solid #f0f0f0;
+
+        }
+
+
+        .info-label {
+
+            font-weight: 600;
+
+            color: #6b7280;
+
+        }
+
+
+        .info-value {
+
+            text-align: right;
+
+            font-weight: 500;
+
+        }
+
+
+        .status-active {
+
+            color: #198754;
+
+            font-weight: 700;
+
+        }
+
+
+        .status-revoked {
+
+            color: #dc3545;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================
+           ERROR
+        ===================================== */
+
+        #errorMessage {
+
+            display: none;
+
+            margin-top: 25px;
+
+        }
+
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        footer {
+
+            background: #0B3B75;
+
+            color: #ffffff;
+
+            text-align: center;
+
+            padding: 25px 15px;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================
+           MOBILE
+        ===================================== */
+
+        @media (max-width: 576px) {
+
+            .verification-section {
+
+                padding: 40px 15px;
+
+            }
+
+
+            .search-card,
+            .result-card {
+
+                padding: 25px 20px;
+
+            }
+
+
+            .info-row {
+
+                flex-direction: column;
+
+                gap: 5px;
+
+            }
+
+
+            .info-value {
+
+                text-align: left;
+
+            }
+
+        }
+
+        .navbar-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+}
+
+.brand-logo{
+    height:55px;
+    width:auto;
+}
+
+.brand-text{
+    color:#fff;
+    font-size:22px;
+    font-weight:700;
+    line-height:1.2;
+}
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVBAR
+===================================== -->
+
+<nav class="navbar">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="https://brihcon.com">
+
+            <img
+                src="assets/images/Logo.png"
+                alt="BRIHCON Logo"
+                class="brand-logo">
+
+            <span class="brand-text">
+                 Brilliant Heart Consult
+            </span>
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================
+     VERIFICATION SECTION
+===================================== -->
+
+<section class="verification-section">
+
+    <div class="verification-container">
+
+
+        <!-- HEADER -->
+
+        <div class="verification-header">
+
+            <div class="verification-icon">
+
+                <i class="bi bi-patch-check-fill"></i>
+
+            </div>
+
+
+            <h1>
+                Certificate Verification
+            </h1>
+
+
+            <p>
+
+                Verify the authenticity of a professional certificate
+                issued by <strong>Brilliant Heart Consult (BRIHCON)</strong>.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- SEARCH -->
+
+        <div class="search-card">
+
+            <form id="verificationForm">
+
+                <label for="certificateID">
+
+                    Certificate ID
+
+                </label>
+
+
+                <div class="row g-3">
+
+                    <div class="col-md-8">
+
+                        <input
+                            type="text"
+                            id="certificateID"
+                            class="form-control"
+                            placeholder="e.g. BRIHCON-2026-0001"
+                            autocomplete="off"
+                            required>
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <button
+                            type="submit"
+                            class="verify-btn w-100">
+
+                            <i class="bi bi-search"></i>
+
+                            Verify Certificate
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+
+            <!-- LOADING -->
+
+            <div id="loading">
+
+                <div
+                    class="spinner-border text-primary"
+                    role="status">
+
+                </div>
+
+                <p class="mt-2">
+
+                    Verifying certificate...
+
+                </p>
+
+            </div>
+
+
+            <!-- ERROR -->
+
+            <div
+                id="errorMessage"
+                class="alert alert-danger">
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RESULT -->
+
+        <div id="result">
+
+            <div class="result-card">
+
+
+                <!-- VERIFIED -->
+
+               <div class="verified-badge">
+
+    <div
+        class="verified-icon"
+        id="verificationIcon">
+
+        <i
+            class="bi bi-check-lg"
+            id="verificationIconSymbol">
+        </i>
+
+    </div>
+
+    <h2 id="verificationTitle">
+
+        Certificate Verified
+
+    </h2>
+
+    <p
+        class="text-muted"
+        id="verificationMessage">
+
+        This certificate has been successfully verified
+        in the BRIHCON certificate database.
+
+    </p>
+
+</div>
+
+
+
+                <!-- DETAILS -->
+
+                <div class="certificate-info">
+
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+                            Certificate ID
+                        </span>
+
+                        <span
+                            class="info-value"
+                            id="resultCertificateID">
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+                            Name
+                        </span>
+
+                        <span
+                            class="info-value"
+                            id="resultName">
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+                            Program
+                        </span>
+
+                        <span
+                            class="info-value"
+                            id="resultCourse">
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+                            Cohort
+                        </span>
+
+                        <span
+                            class="info-value"
+                            id="resultCohort">
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+                            Issue Date
+                        </span>
+
+                        <span
+                            class="info-value"
+                            id="resultIssueDate">
+
+                        </span>
+
+                    </div>
+
+                    <div class="info-row">
+
+    <span class="info-label">
+        Verified On
+    </span>
+
+    <span
+        class="info-value"
+        id="resultVerifiedAt">
+
+    </span>
+
+</div>
+
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+                            Status
+                        </span>
+
+                        <span
+                            class="info-value"
+                            id="resultStatus">
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- CERTIFICATE LINK -->
+
+                <div class="text-center mt-4">
+
+                    <a
+    id="certificateLink"
+    href="#"
+    target="_blank"
+    class="btn btn-success">
+
+    <i class="bi bi-file-earmark-pdf"></i>
+
+    View / Download Certificate
+
+</a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    © <span id="year"></span>
+
+    Brilliant Heart Consult (BRIHCON).
+
+    All Rights Reserved.
+
+</footer>
+
+
+
+<script>
+
+    /* =====================================
+       APPS SCRIPT API
+    ===================================== */
+
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxDbPwXXDzWbyAxyiQN57hT2HyJUrzVJd_TEQZaiDzU9Y-G57OfMNeTEmmJqgPz_q3czg/exec";
+
+
+
+    /* =====================================
+       ELEMENTS
+    ===================================== */
+
+    const form =
+        document.getElementById(
+            "verificationForm"
+        );
+
+    const certificateIDInput =
+        document.getElementById(
+            "certificateID"
+        );
+
+    const loading =
+        document.getElementById(
+            "loading"
+        );
+
+    const result =
+        document.getElementById(
+            "result"
+        );
+
+    const errorMessage =
+        document.getElementById(
+            "errorMessage"
+        );
+
+
+
+    /* =====================================
+       VERIFY CERTIFICATE
+    ===================================== */
+
+    async function verifyCertificate(certificateID) {
+
+        loading.style.display = "block";
+
+        result.style.display = "none";
+
+        errorMessage.style.display = "none";
+
+
+        try {
+
+            const response =
+                await fetch(
+
+                    API_URL +
+                    "?id=" +
+                    encodeURIComponent(
+                        certificateID
+                    )
+
+                );
+
+
+            const data =
+                await response.json();
+
+
+            loading.style.display = "none";
+
+
+            if (
+                !data.success ||
+                !data.found
+            ) {
+
+                throw new Error(
+
+                    data.message ||
+                    "Certificate not found."
+
+                );
+
+            }
+
+
+            /* =====================================
+               DISPLAY DATA
+            ===================================== */
+
+            document.getElementById(
+                "resultCertificateID"
+            ).textContent =
+                data.certificateID || "-";
+
+
+            document.getElementById(
+                "resultName"
+            ).textContent =
+                data.name || "-";
+
+
+            document.getElementById(
+                "resultCourse"
+            ).textContent =
+                data.course || "-";
+
+
+            document.getElementById(
+                "resultCohort"
+            ).textContent =
+                data.cohort || "-";
+
+
+            document.getElementById(
+                "resultIssueDate"
+            ).textContent =
+                data.issueDate || "-";
+
+                document.getElementById(
+    "resultVerifiedAt"
+).textContent =
+    new Date().toLocaleString(
+        "en-GB",
+        {
+            day: "2-digit",
+            month: "long",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        }
+    );
+
+
+            const status =
+    String(data.status || "").toUpperCase();
+
+const statusElement =
+    document.getElementById("resultStatus");
+
+const icon =
+    document.getElementById("verificationIcon");
+
+const iconSymbol =
+    document.getElementById("verificationIconSymbol");
+
+const title =
+    document.getElementById("verificationTitle");
+
+const message =
+    document.getElementById("verificationMessage");
+
+statusElement.textContent = status;
+
+statusElement.className = "info-value";
+
+icon.className = "verified-icon";
+
+if(status==="ACTIVE"){
+
+    statusElement.classList.add("status-active");
+
+    icon.classList.add("verified-success");
+
+    iconSymbol.className="bi bi-check-lg";
+
+    title.textContent="Certificate Verified";
+
+    message.textContent=
+    "This certificate is authentic and currently valid.";
+
+}
+
+else if(status==="REVOKED"){
+
+    statusElement.classList.add("status-revoked");
+
+    icon.classList.add("verified-danger");
+
+    iconSymbol.className="bi bi-x-lg";
+
+    title.textContent="Certificate Revoked";
+
+    message.textContent=
+    "This certificate has been revoked and is no longer valid.";
+
+}
+
+else if(status==="DELETED"){
+
+    statusElement.classList.add("status-revoked");
+
+    icon.classList.add("verified-danger");
+
+    iconSymbol.className="bi bi-trash";
+
+    title.textContent="Certificate Deleted";
+
+    message.textContent=
+    "This certificate record has been deleted.";
+
+}
+
+else{
+
+    icon.classList.add("verified-warning");
+
+    iconSymbol.className="bi bi-exclamation-lg";
+
+    title.textContent="Certificate Pending";
+
+    message.textContent=
+    "This certificate has not yet been activated.";
+
+}
+
+
+            /* =====================================
+               CERTIFICATE LINK
+            ===================================== */
+
+            const certificateLink =
+                document.getElementById(
+                    "certificateLink"
+                );
+
+
+           if(
+    data.certificateLink &&
+    status==="ACTIVE"
+){
+
+                certificateLink.href =
+                    data.certificateLink;
+
+                certificateLink.style.display =
+                    "inline-block";
+
+            }
+
+            else {
+
+                certificateLink.style.display =
+                    "none";
+
+            }
+
+
+            result.style.display =
+                "block";
+
+
+            result.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "start"
+
+            });
+
+
+        }
+
+        catch (error) {
+
+            loading.style.display =
+                "none";
+
+
+            errorMessage.textContent =
+                error.message ||
+                "Unable to verify certificate.";
+
+
+            errorMessage.style.display =
+                "block";
+
+        }
+
+    }
+
+
+
+    /* =====================================
+       FORM SUBMIT
+    ===================================== */
+
+    form.addEventListener(
+
+        "submit",
+
+        function(event) {
+
+            event.preventDefault();
+
+
+            const certificateID =
+                certificateIDInput.value.trim();
+
+
+            if (!certificateID) {
+
+                return;
+
+            }
+
+
+            verifyCertificate(
+                certificateID
+            );
+
+        }
+
+    );
+
+
+
+    /* =====================================
+       AUTO VERIFY FROM QR CODE
+    ===================================== */
+
+    const urlParams =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const urlCertificateID =
+        urlParams.get("id");
+
+
+    if (urlCertificateID) {
+
+        certificateIDInput.value =
+            urlCertificateID;
+
+
+        verifyCertificate(
+            urlCertificateID
+        );
+
+    }
+
+
+
+    /* =====================================
+       YEAR
+    ===================================== */
+
+    document.getElementById(
+        "year"
+    ).textContent =
+        new Date().getFullYear();
+
+</script>
+
+
+</body>
+
+</html>
