@@ -3831,3 +3831,121 @@ padding:45px 0;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:30px;
 }
+/* =========================================
+   INSTRUCTOR CARD
+========================================= */
+
+.instructor-section {
+    background: #f8fafc;
+}
+
+.section-subtitle {
+    display: inline-block;
+    color: #0d6efd;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.instructor-card {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: #bfe6ee;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eef1f5;
+}
+
+.instructor-image {
+    flex: 0 0 210px;
+}
+
+.instructor-image img {
+    width: 210px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 18px;
+    display: block;
+}
+
+.instructor-content {
+    flex: 1;
+}
+
+.instructor-label {
+    color: #0d6efd;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.instructor-content h3 {
+    margin: 6px 0 3px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #172033;
+}
+
+.instructor-content h5 {
+    margin-bottom: 15px;
+    color: #667085;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.instructor-content p {
+    color: #667085;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.instructor-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.instructor-skills span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 12px;
+    background: #f1f6ff;
+    border-radius: 8px;
+    color: #315b91;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.instructor-skills i {
+    color: #0d6efd;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .instructor-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+        gap: 25px;
+    }
+
+    .instructor-image img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .instructor-content h3 {
+        font-size: 24px;
+    }
+
+    .instructor-skills {
+        justify-content: center;
+    }
+}
